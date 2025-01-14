@@ -26,5 +26,10 @@ Then, you can run the script
 This will create a subdirectory method-basisset/dimer-scans in which you find the results sorted by
 dimer name.
 
+Some more information is available directly from the script, by
+```
+./run_calcs.py -h
+```
+
 ## Extracting inputs for ACT
 Will be added soon.
