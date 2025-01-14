@@ -3,8 +3,8 @@ Scripts to perform SAPT calculations and generate input files for the Alexandria
 
 ## Prerequisites
 You need to have a recent and working Psi4 installation, which you can obtain, for instance, using
-(conda)[https://anaconda.org/conda-forge/psi4]. For conda to work, you need to install 
-(miniconda)[https://docs.anaconda.com/miniconda/].
+[conda](https://anaconda.org/conda-forge/psi4). For conda to work, you need to install 
+[miniconda](https://docs.anaconda.com/miniconda/).
 
 ## Performing calculations
 You need to prepare a selection file that looks like
