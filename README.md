@@ -17,8 +17,7 @@ cytosine#water
 water#water
 ```
 and so on. You also need to make sure that either the monomers are in the xyz/monomers directory
-(in correct xyz format), or you prepare user structures of dimers that you put in the "user" directory.
-In that case the filenames should correspond to monomer1#monomer2xxx.pdb where xxx is a number.
+(in correct xyz format). 
 
 Then, you can run the script
 ```
@@ -26,6 +25,12 @@ Then, you can run the script
 ```
 This will create a subdirectory method-basisset/dimer-scans in which you find the results sorted by
 dimer name.
+
+Alternatively, you prepare your own structures of dimers that you put in a "user" directory.
+In that case the filenames should correspond to monomer1#monomer2xxx.pdb where xxx is a number. You have to use a slightly different command line to do the SAPT calculations:
+```
+./run_calcs.py -v -ncore 32 -hours 48 -dimers sample.dat -user 
+```
 
 Some more information is available directly from the script, by
 ```
