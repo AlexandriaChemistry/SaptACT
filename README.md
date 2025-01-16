@@ -18,6 +18,7 @@ water#water
 ```
 and so on. You also need to make sure that either the monomers are in the xyz/monomers directory
 (in correct xyz format), or you prepare user structures of dimers that you put in the "user" directory.
+In that case the filenames should correspond to monomer1#monomer2xxx.pdb where xxx is a number.
 
 Then, you can run the script
 ```
