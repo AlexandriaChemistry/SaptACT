@@ -23,8 +23,9 @@ Then, you can run the script
 ```
 ./run_calcs.py -v -ncore 32 -hours 48 -dimers sample.dat -ndist 3 -mindist 0.95 -maxdist 1.05 -norient 4 
 ```
-This will create a subdirectory method-basisset/dimer-scans in which you find the results sorted by
-dimer name.
+This will create a subdirectory method-basisset/dimer-scans in which you find the results sorted by dimer name.
+Note that you can change the SAPT level of theory by using the -method and -basis flags.
+
 
 Alternatively, you prepare your own structures of dimers that you put in a "user" directory.
 In that case the filenames should correspond to monomer1#monomer2xxx.pdb where xxx is a number. You have to use a slightly different command line to do the SAPT calculations:
@@ -38,4 +39,15 @@ Some more information is available directly from the script, by
 ```
 
 ## Extracting inputs for ACT
-Will be added soon.
+Two steps are needed to extract the information from the Psi4 log files. First, run the following command:
+```
+nohup ./generate_json.py &
+```
+which will read the Psi4 log file and summarize the information in a small json file for each calculation. Debugging output will be stored in the nohup.out file.
+Note that you can select the level of theory to be used and that the default is the same for all scripts.
+The above script uses the multiprocessing Python library to speed up the reading of log files, and it will skip directories where there is a results.json file already. You can however use the -f flag to force the script to redo everything. See
+```
+./generate_json.py -h
+```
+for more information.
+

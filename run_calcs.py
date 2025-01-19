@@ -415,7 +415,7 @@ class Psi4jobs:
         df = []
         for idist in range(ndist):
             if ndist > 1:
-                df.append((mindist + (idist*(maxdist-mindist))/(ndist-1)) - 1)
+                df.append((mindist + (idist*(maxdist-mindist))/(ndist-1)))
             else:
                 df.append(0)
         return df
