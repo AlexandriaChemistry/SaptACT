@@ -157,6 +157,8 @@ class Psi4Files:
                 # Atom counter for fragments
                 myatoms.append(offset+j+1)
                 self.charges.append(0)
+            if k >= len(self.MD):
+                sys.exit("k = %d len(self.MD) = %d" % ( k, len(self.MD)))
             if (self.status == Psi4Error.OK and
                 not self.MD[k].from_coords_elements(elements[offset:], coords, charge=frag_charges[k])):
                 logf.write("Cannot analyze coordinates using OpenBabel\n")
@@ -173,17 +175,20 @@ class Psi4Files:
                 self.mp1.add_fragment(frag)
                 for b in self.MD[k].bonds:
                     self.mp1.add_bond(offset+b[0], offset+b[1], self.MD[k].bonds[b])
-            # Now add the atoms to the experiment
-            for atom in range(natom):
-                obtype = g2a.rename(self.MD[k].atoms[1+atom]["obtype"])
-                # Atom numbers should match bonds
-                myexp.add_atom(elements[offset+atom], obtype, offset+atom+1,
-                               "Angstrom",
-                               coords[atom][0], coords[atom][1], coords[atom][2],
-                               "Hartree/Bohr",
-                               forces[atom][0], forces[atom][1], forces[atom][2])
-            offset   += natom
-            allcoords.append(coords)
+            if self.status == Psi4Error.OK:
+                # Now add the atoms to the experiment
+                if 0 == len(self.MD[k].atoms):
+                    sys.exit("No atoms in compound %d" % k )
+                for atom in range(natom):
+                    obtype = g2a.rename(self.MD[k].atoms[1+atom]["obtype"])
+                    # Atom numbers should match bonds
+                    myexp.add_atom(elements[offset+atom], obtype, offset+atom+1,
+                                   "Angstrom",
+                                   coords[atom][0], coords[atom][1], coords[atom][2],
+                                   "Hartree/Bohr",
+                                   forces[atom][0], forces[atom][1], forces[atom][2])
+                offset   += natom
+                allcoords.append(coords)
         # This has to come after the atoms because we need the elements here
         if not energies in mydict:
             self.status = Psi4Error.IncompleteJson

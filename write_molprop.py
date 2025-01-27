@@ -110,7 +110,7 @@ def parse_args():
     parser  = argparse.ArgumentParser(description=desc)
     defbasis = "aug-cc-pvdz"
     parser.add_argument("-basis", "--basis", help="Basis set, default is "+defbasis, type=str, default=defbasis)
-    defmethod = "sap2+"
+    defmethod = "sapt2+"
     parser.add_argument("-method","--method", help="QM method default "+defmethod, type=str, default=defmethod)
     defname = "molprop.xml"
     deltaEmax = 0.02
