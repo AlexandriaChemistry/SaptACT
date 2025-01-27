@@ -236,7 +236,7 @@ class Psi4Reader:
             for k in range(monoq[comp]["natom"]):
                 atom           = {}
                 if len(logcoords) <= n0+k:
-                    msgs += ("Not enough atoms (%d) in logcoords, expected at least %d in %s" % ( len(logcoords), n0+k, os.getcwd() ))
+                    msgs.append("Not enough atoms (%d) in logcoords, expected at least %d in %s" % ( len(logcoords), n0+k, os.getcwd() ))
                     return
                 if elem in logcoords[n0+k] and coords in logcoords[n0+k]:
                     atom["elem"]   = logcoords[n0+k]["elem"]
@@ -245,7 +245,7 @@ class Psi4Reader:
                         atom[forces] = logcoords[n0+k][forces]
                     atoms.append(atom)
                 else:
-                    msgs += ("Incorrect logcoords '%s' in %s" % ( str(logcoords[n0+k]), os.getcwd()))
+                    msgs.append("Incorrect logcoords '%s' in %s" % ( str(logcoords[n0+k]), os.getcwd()))
                     return
             self.add_mol(comp, monoq, atoms)
             n0 += monoq[comp]["natom"]
@@ -421,7 +421,7 @@ def do_one(workdir:str, method:str, calc:str, compounds, monoq:dict, index:str,
             elif calc == 'sp':
                 readOK = reader.read_sp_log(compounds, monoq)
         else:
-            msgs += ( "No log file in %s" % os.getcwd())
+            msgs.append("No log file in %s" % os.getcwd())
         if readOK:
             reader.save_json(resjson)
         msgs += reader.msgs
