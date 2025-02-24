@@ -1,14 +1,19 @@
 #!/usr/bin/env python3
 
 import argparse, os, json, glob, math, sys
-from run_calcs import add_lot_args, get_dimer_selection
+from run_calcs import get_dimer_selection
 
 Hartree = 2625.5
 
 def parse():
     desc = "Generate plots of dimer energies as a function of distance"
     parser  = argparse.ArgumentParser(description=desc)
-    add_lot_args(parser)
+
+    defbasis = "aug-cc-pvdz"
+    parser.add_argument("-basis", "--basis", help="Basis set, default "+defbasis, type=str, default=defbasis)
+    defmethod = "sapt2+"
+    parser.add_argument("-method","--method", help="QM method, default "+defmethod, type=str, default=defmethod)
+
     parser.add_argument("-sel", "--selection", help="Plot dimer interactions based on compounds in a selection file, please provide file name with this flag. Default is to plot all dimers.", type=str, default=None)
     dEmax = 0.1
     parser.add_argument("-dEmax", "--dEmax", help="Highest exchange energy to include. Default "+str(dEmax)+" Hartree", type=float, default=dEmax)
