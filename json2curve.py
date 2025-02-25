@@ -23,13 +23,9 @@ def parse():
 
 if __name__ == "__main__":
     args = parse()
-    lots = []
-    for m in args.method:
-        for b in args.basis:
-            lots.append(m + "-" + b)
-    if len(lots) != 1:
-        sys.exit("Please specify one method and one basisset")
-    lot = lots[0]
+    lot  = args.method + "-" + args.basis
+    if not os.path.exists(lot):
+        sys.exit("No directory '%s' please check your command line")
     print("Will use the '%s' level of theory" % lot)
     sapt = [ "Dispersion", "Exchange", "Electrostatics", "Induction", "InteractionEnergy" ]
     outdir = 'SaptPlots'
