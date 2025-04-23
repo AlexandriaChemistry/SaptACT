@@ -1,0 +1,13 @@
+HEADER    HYDROLASE/DNA/RNA                       20-JUN-17   5W7N              
+TITLE     2-SE-T2/4-DNA AND NATIVE RNA HYBRID IN COMPLEX WITH RNASE H CATALYTIC 
+TITLE    2 DOMAIN D132N MUTANT
+HETATM  145  N1  US3 C   2      21.953  -5.091  28.256  1.00 23.67           N  
+HETATM  146  C2  US3 C   2      20.772  -5.242  27.640  1.00 20.58           C  
+HETATM  147 SE2  US3 C   2      20.538  -5.353  25.722  0.70 23.38          SE  
+HETATM  148  N3  US3 C   2      19.580  -5.240  28.241  1.00 21.21           N  
+HETATM  149  C4  US3 C   2      19.618  -5.092  29.612  1.00 22.10           C  
+HETATM  150  O4  US3 C   2      18.513  -5.120  30.104  1.00 22.19           O  
+HETATM  151  C5  US3 C   2      20.808  -4.875  30.302  1.00 21.16           C  
+HETATM  152  C6  US3 C   2      22.006  -4.897  29.670  1.00 24.08           C  
+HETATM  162  C5A US3 C   2      20.882  -4.690  31.699  1.00 24.38           C  
+END

@@ -1,0 +1,12 @@
+HEADER    HYDROLASE/RNA/DNA                       26-DEC-07   3BSU              
+TITLE     HYBRID-BINDING DOMAIN OF HUMAN RNASE H1 IN COMPLEX WITH 12-MER RNA/DNA
+HETATM  416  N1  5IU E   9      -6.741 -19.459  19.453  1.00 24.12           N  
+HETATM  417  C2  5IU E   9      -6.162 -19.896  20.617  1.00 24.62           C  
+HETATM  418  N3  5IU E   9      -4.791 -19.880  20.627  1.00 23.21           N  
+HETATM  419  C4  5IU E   9      -3.972 -19.433  19.610  1.00 20.81           C  
+HETATM  420  C5  5IU E   9      -4.644 -18.976  18.481  1.00 22.34           C  
+HETATM  421  C6  5IU E   9      -5.977 -19.008  18.428  1.00 23.07           C  
+HETATM  422  O2  5IU E   9      -6.804 -20.244  21.559  1.00 24.60           O  
+HETATM  423  O4  5IU E   9      -2.766 -19.458  19.736  1.00 21.01           O  
+HETATM  424  I5  5IU E   9      -3.440 -18.163  16.756  0.40 25.92           I  
+END

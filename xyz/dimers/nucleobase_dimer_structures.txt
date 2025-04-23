@@ -1,0 +1,45 @@
+Nucleobase dimer structures
+
+.pdb file name | Database reference | Comment
+
+adenine#adenine_001 | JSCH-2005 | Watson Crick-like
+adenine#adenine_002 | JSCH-2005 | Hoogsteen-like for one base
+adenine#adenine_003 | JSCH-2005 | Hoogsteen-like for both bases
+adenine#adenine_004 | PDB-ID: 3ND4 | Pi-stacking, bases A5 and A6
+adenine#cytosine_001 | JSCH-2005 | Hydrogen bonding
+adenine#cytosine_002 | PDB-ID: 1D29 | Pi-stacking, bases DC A 9 DA A 10
+adenine#cytosine_003 | PDB-ID: 1D29 | Pi-stacking, bases DA A 10 DC A 11
+adenine#guanine_001 | JSCH-2005 | Watson Crick-like
+adenine#guanine_002 | JSCH-2005 | Hoogsteen-like for one base
+adenine#guanine_003 | PDB-ID: 3ND4 | Pi-stacking, bases A3 and G4
+adenine#thymine_001 | JSCH-2005 | Watson Crick
+adenine#thymine_002 | PDB-ID: 4U9M | Hoogsteen-like, bases DA A4 and DT B 9
+adenine#thymine_003 | JSCH-2005 | Pi-stacking
+adenine#thymine_004 | S22x5 | Pi-stacking
+adenine#uracil_001 | PDB-ID: 1MHK | Watson Crick, bases AS3 and UL12
+adenine#uracil_002 | PDB-ID: 3P22 | Hoogsteen-like, bases UA9 and AB6
+adenine#uracil_003 | PDB-ID: 1MKH | bases AS3 and US4
+cytosine#cytosine_001 | PDB-ID: 3EDT | Hydrogen bonding, bases AC7 and BC18
+cytosine#cytosine_002 | PDB-ID: 4MS9 | Pi-stacking, bases C7 and C8
+cytosine#guanine_001 | JSCH-2005 | Watson Crick
+cytosine+#guanine_002 | PDB-ID: 6NJQ | Hoogsteen, bases DC9 and DG6
+cytosine#guanine_003 | JSCH-2005 | Pi-stacking
+cytosine#thymine_001 | PDB-ID: 7N2M | Hydrogen bonding, bases DT5 and BC11
+cytosine#thymine_002 | PDB-ID: 1BNA | Pi-stacking, bases DT A 8 and DC A 9
+cytosine#uracil_001 | PDB-ID: 5FKF | Watson Crick-like, bases AU37 and AC 18
+cytosine#uracil_002 | PDB-ID: 3ND4 | Pi-stacking, bases U9 and C10
+guanine#guanine_001 | JSCH-2005 | Hoogsteen-like for one base
+guanine#guanine_002 | PDB-ID: 4MS9 | Pi-stacking, bases G3 and G4
+guanine#thymine_001 | PDB-ID: 3K0S | Hydrogen bonding, bases DG9 and DT22
+guanine#thymine_002 | PDB-ID: 1D29 | Pi-stacking, bases DG A 2 and DT A 3
+guanine#thymine_003 | PDB-ID: 1D29 | Pi-stacking, bases DT A 3 and DA A 4
+guanine#uracil_001 | JSCH-2005 | Hydrogen bonding
+guanine#uracil_002 | PDB-ID: 3D0M | Pi-stacking, bases GX4 and UX5
+guanine#uracil_003 | PDB-ID: 3D0M | Pi-stacking, bases UX10 and GX11
+thymine#thymine_001 | PDB-ID: 7SG8 | Hydrogen bonding
+thymine#thymine_002 | PDB-ID: 1BNA | Pi-stacking, bases DT A 7 and DT A 8
+thymine#uracil_001 | PDB-ID: 3HOW | Hydrogen bonding, bases U17(10) and DT15(19)
+thymine#uracil_002 | PDB-ID: 1BNA | Pi-stacking, bases DT A 7 and DT A 8 - modified T->U
+uracil#uracil_001 | S66x8 | Hydrogen bonding
+uracil#uracil_002 | S22x5 | Hydrogen bonding
+uracil#uracil_003 | S66x8 | Pi-stacking
