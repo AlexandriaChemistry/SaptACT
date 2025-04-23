@@ -1,0 +1,13 @@
+HEADER    TRANSFERASE                             01-JUL-23   8TCI              
+TITLE     CRYSTAL STRUCTURE OF DNMT3C-DNMT3L IN COMPLEX WITH CGG DNA
+HETATM  148  N1  T5S C   2     103.715  -5.771  28.125  1.00 21.95           N  
+HETATM  149  C6  T5S C   2     103.714  -5.680  29.543  1.00 21.41           C  
+HETATM  150  C2  T5S C   2     102.535  -6.004  27.451  1.00 22.20           C  
+HETATM  151  O2  T5S C   2     102.480  -6.119  26.214  1.00 19.73           O  
+HETATM  152  N3  T5S C   2     101.313  -6.106  28.127  1.00 19.28           N  
+HETATM  153  C4  T5S C   2     101.299  -6.055  29.486  1.00 21.68           C  
+HETATM  154  O4  T5S C   2     100.223  -6.143  30.031  1.00 20.25           O  
+HETATM  155  C5  T5S C   2     102.496  -5.800  30.164  1.00 20.92           C  
+HETATM  156 SE   T5S C   2     102.468  -5.696  32.120  0.88 26.89          SE  
+HETATM  157  CH3 T5S C   2     101.748  -4.006  32.262  0.88 26.20           C  
+TER

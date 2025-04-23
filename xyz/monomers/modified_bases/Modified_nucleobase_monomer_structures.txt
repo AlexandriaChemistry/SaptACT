@@ -1,0 +1,16 @@
+Modified nucleobase monomers
+
+.pdb file name | Database reference | Comment
+
+1methyl_Adenine | 5CCX | base A58
+10methyl_Adenine | 6Q8V | base A8
+6selenium_Adenine | 2R7Y | base A3
+5methyl_Cytosine | 4U6M | base C1
+5bromo_Cytosine | 5LQO | base C
+7methyl_Guanine | 6IS0 | base G1
+2selenium_Thymine | 5W7N | base T3
+5selenium_Thymine | 5USA | base T2
+5methyl_Uracil | 3BT7 | base U7
+5iodo_Uracil | 3BSC | base U9
+4H_Cytosine | 6F57 | base Z
+4H_Cytosine_2 | 8TCI | base Z

@@ -1,0 +1,15 @@
+HEADER    HYDROLASE/RNA/DNA                       10-SEP-07   2R7Y              
+TITLE     SELENIUM DERIVATIZED RNA/DNA HYBRID IN COMPLEX WITH RNASE H CATALYTIC 
+TITLE    2 DOMAIN MUTANT D132N
+HETATM  164  C2  SDG C   3      21.519  -4.280  28.685  1.00 29.24           C  
+HETATM  169  N9  SDG C   3      23.043  -3.385  31.729  1.00 31.37           N  
+HETATM  170  C4  SDG C   3      22.200  -3.766  30.728  1.00 29.96           C  
+HETATM  171  N3  SDG C   3      22.555  -3.964  29.439  1.00 29.73           N  
+HETATM  172  N2  SDG C   3      21.704  -4.490  27.378  1.00 27.71           N  
+HETATM  173  N1  SDG C   3      20.221  -4.405  29.157  1.00 27.15           N  
+HETATM  174  C6  SDG C   3      19.824  -4.198  30.471  1.00 28.47           C  
+HETATM  175 SE   SDG C   3      18.110  -4.309  30.980  0.86 30.42          SE  
+HETATM  176  C5  SDG C   3      20.953  -3.859  31.314  1.00 29.30           C  
+HETATM  177  N7  SDG C   3      21.024  -3.582  32.675  1.00 29.51           N  
+HETATM  178  C8  SDG C   3      22.286  -3.319  32.877  1.00 29.82           C  
+END

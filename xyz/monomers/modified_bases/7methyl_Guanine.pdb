@@ -1,0 +1,16 @@
+HEADER    TRANSFERASE/RNA                         15-NOV-18   6IS0              
+TITLE     CRYSTAL STRUCTURE OF THE ZEBRAFISH CAP-SPECIFIC ADENOSINE             
+TITLE    2 METHYLTRANSFERASE BOUND TO SAH AND M7G-CAPPED RNA
+HETATM 3827  N9  M7G C   1      52.263   9.723 -14.711  1.00 75.63           N  
+HETATM 3828  C8  M7G C   1      51.732  11.030 -15.105  1.00 75.53           C  
+HETATM 3829  N7  M7G C   1      50.309  10.761 -15.250  1.00 74.72           N  
+HETATM 3830  CM7 M7G C   1      49.340  11.787 -15.597  1.00 74.04           C  
+HETATM 3831  C5  M7G C   1      50.051   9.402 -15.025  1.00 72.66           C  
+HETATM 3832  C6  M7G C   1      48.851   8.682 -15.087  1.00 72.43           C  
+HETATM 3833  O6  M7G C   1      47.726   9.091 -15.358  1.00 73.01           O  
+HETATM 3834  N1  M7G C   1      49.070   7.338 -14.788  1.00 68.70           N  
+HETATM 3835  C2  M7G C   1      50.279   6.774 -14.478  1.00 65.30           C  
+HETATM 3836  N2  M7G C   1      50.282   5.460 -14.227  1.00 63.61           N  
+HETATM 3837  N3  M7G C   1      51.406   7.462 -14.423  1.00 63.35           N  
+HETATM 3838  C4  M7G C   1      51.255   8.773 -14.702  1.00 69.75           C  
+END

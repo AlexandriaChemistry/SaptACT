@@ -1,0 +1,13 @@
+HEADER    DNA/RNA                                 29-JUL-14   4U6M              
+TITLE     CRYSTAL STRUCTURE OF DNA/RNA DUPLEX OBTAINED IN THE PRESENCE OF       
+TITLE    2 SPERMINE
+HETATM  201  N1  5CM B   1     -17.189 -25.137  12.131  1.00 30.18           N  
+HETATM  202  C2  5CM B   1     -15.808 -25.318  12.164  1.00 29.54           C  
+HETATM  203  N3  5CM B   1     -15.205 -26.012  11.170  1.00 29.35           N  
+HETATM  204  C4  5CM B   1     -15.934 -26.518  10.175  1.00 31.31           C  
+HETATM  205  C5  5CM B   1     -17.339 -26.338  10.111  1.00 31.00           C  
+HETATM  206  C5A 5CM B   1     -18.095 -26.916   8.957  1.00 33.60           C  
+HETATM  207  C6  5CM B   1     -17.924 -25.649  11.100  1.00 31.08           C  
+HETATM  208  O2  5CM B   1     -15.169 -24.837  13.105  1.00 27.41           O  
+HETATM  209  N4  5CM B   1     -15.306 -27.216   9.223  1.00 31.73           N  
+END

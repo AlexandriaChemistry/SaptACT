@@ -1,0 +1,10 @@
+HEADER    TRANSFERASE                             01-JUL-23   8TCI              
+TITLE     CRYSTAL STRUCTURE OF DNMT3C-DNMT3L IN COMPLEX WITH CGG DNA 
+HETATM 7490  N1  PYO E   5      17.021  18.577  19.749  1.00 55.30           N  
+HETATM 7491  C6  PYO E   5      16.193  18.676  20.943  1.00 65.31           C  
+HETATM 7492  C2  PYO E   5      18.416  19.095  19.780  1.00 57.74           C  
+HETATM 7493  C5  PYO E   5      16.756  19.297  22.185  1.00 60.38           C  
+HETATM 7494  O2  PYO E   5      19.093  19.012  18.812  1.00 71.27           O  
+HETATM 7495  N3  PYO E   5      18.966  19.719  21.009  1.00 56.08           N  
+HETATM 7496  C4  PYO E   5      18.150  19.825  22.198  1.00 64.86           C  
+TER

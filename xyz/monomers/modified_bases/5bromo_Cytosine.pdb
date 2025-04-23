@@ -1,0 +1,12 @@
+HEADER    RNA                                     17-AUG-16   5LQO              
+TITLE     RNA DUPLEX HAS CENTRAL CONSECUTIVE GA PAIRS FLANKED BY G-C BASEPAIRS 
+HETATM   34  N1  CBV A   2     -23.022  -3.053 -12.086  1.00 46.80           N  
+HETATM   35  C2  CBV A   2     -22.292  -4.328 -12.285  1.00 50.36           C  
+HETATM   36  O2  CBV A   2     -22.883  -5.357 -12.385  1.00 41.64           O  
+HETATM   37  N3  CBV A   2     -20.817  -4.304 -12.368  1.00 45.74           N  
+HETATM   38  C4  CBV A   2     -20.100  -3.061 -12.247  1.00 43.39           C  
+HETATM   39  N4  CBV A   2     -18.655  -3.066 -12.328  1.00 54.79           N  
+HETATM   40  C5  CBV A   2     -20.827  -1.782 -12.036  1.00 43.89           C  
+HETATM   41  C6  CBV A   2     -22.314  -1.789 -11.959  1.00 40.78           C  
+HETATM   42  BR  CBV A   2     -19.817  -0.133 -11.869  1.00 57.12          BR  
+END
