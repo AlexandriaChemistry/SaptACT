@@ -22,7 +22,7 @@ def parse():
     return args
 
 def doplot(xvgf:str, pdff:str):
-    os.system("viewxvg -f %s -legend_x 0.5 -ls None -mk o x '*' + v  -pdf %s -noshow -tickfs 24 -lfs 30 -alfs 30" % ( xvgf, pdff ) )
+    os.system("plotxvg -f %s -legend_x 0.5 -ls None None None None None -mk o x '*' + v  -save %s -noshow -tickfs 24 -lfs 30 -alfs 30 -color black purple blue cyan red" % ( xvgf, pdff ) )
 
 class NewDist:
     def __init__(self):
