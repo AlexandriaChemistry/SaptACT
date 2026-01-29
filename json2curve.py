@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 import argparse, copy, os, json, glob, math, sys, xmltodict
-from run_calcs import add_lot_args, get_dimer_selection
+from run_calcs import get_dimer_selection
 
 Hartree = 2625.5
 minstr  = "min"
@@ -10,7 +10,6 @@ maxstr  = "max"
 def parse():
     desc = "Generate plots of dimer energies as a function of distance."
     parser  = argparse.ArgumentParser(description=desc)
-    add_lot_args(parser)
     parser.add_argument("-sel", "--selection", help="Plot dimer interactions based on compounds in a selection file, please provide file name with this flag. Default is to plot all dimers.", type=str, default=None)
     parser.add_argument("-mp", "--molprop", help="Use molprop file as input instead of json files", type=str, default=None)
     parser.add_argument("-cap","--caption", help="Extra text to add to the captoions", type=str, default="")
