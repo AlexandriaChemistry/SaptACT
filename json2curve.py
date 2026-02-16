@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 import argparse, copy, os, json, glob, math, sys, xmltodict
-from run_calcs import add_lot_args, get_dimer_selection
+from run_calcs import get_dimer_selection
 
 Hartree = 2625.5
 minstr  = "min"
@@ -10,7 +10,6 @@ maxstr  = "max"
 def parse():
     desc = "Generate plots of dimer energies as a function of distance."
     parser  = argparse.ArgumentParser(description=desc)
-    add_lot_args(parser)
     parser.add_argument("-sel", "--selection", help="Plot dimer interactions based on compounds in a selection file, please provide file name with this flag. Default is to plot all dimers.", type=str, default=None)
     parser.add_argument("-mp", "--molprop", help="Use molprop file as input instead of json files", type=str, default=None)
     parser.add_argument("-cap","--caption", help="Extra text to add to the captoions", type=str, default="")
@@ -22,7 +21,7 @@ def parse():
     return args
 
 def doplot(xvgf:str, pdff:str):
-    os.system("viewxvg -f %s -legend_x 0.5 -ls None -mk o x '*' + v  -pdf %s -noshow -tickfs 24 -lfs 30 -alfs 30" % ( xvgf, pdff ) )
+    os.system("plotxvg -f %s -legend_x 0.5 -ls None None None None None -mk o x '*' + v  -save %s -noshow -tickfs 24 -lfs 30 -alfs 30 -color black purple blue cyan red" % ( xvgf, pdff ) )
 
 class NewDist:
     def __init__(self):
