@@ -5,7 +5,7 @@ import os, sys, glob, argparse, shutil
 import molprops
 import get_mol_dict as gmd
 from atomic_heat_of_formation import *
-from run_calcs  import special_basis, get_monoq, get_dimer_selection
+from run_calcs  import special_basis, get_monoq, get_dimer_selection, get_monomer_selection, get_diatomics
 from elements import *
 from psi4files  import *
 from mol_csv_api import *
@@ -253,6 +253,57 @@ def add_dimers(mm:molprops.Molprop, Mol:Molecules, args:list, logf, ahof):
         os.chdir("..")
     os.chdir("..")
 
+def add_monomers(mm:molprops.Molprop, Mol:Molecules, args:list, logf, ahof):
+    lot = args.method + "-" + args.basis
+    if not os.path.exists(lot):
+        logf.write("No such LoT %s\n" % lot)
+        return
+    monoq       = get_monoq()
+    monomerlist = []
+    if None != args.selection:
+        monomerlist = get_monomer_selection(args.selection)
+    temperature = 0
+    ahof        = AtomicHOF(None, temperature, False)
+    os.chdir(lot)
+
+    for calc in [ "esp", "opt", "scans", "sp" ]:
+        monomers = "monomer-" + calc
+        if not os.path.exists(monomers):
+            continue
+        os.chdir(monomers)
+        logf.write("Will try to add monomers for %s jobtype %s\n" % (lot, calc))
+        for mymol in glob.glob("*"):
+            if not os.path.isdir(mymol):
+                continue
+            myskip = len(monomerlist) != 0
+            for km in monomerlist:
+                if mymol == km["mon1"]:
+                    myskip = False
+            if myskip:
+                continue
+            os.chdir(mymol)
+            # Find compounds
+            # First time around we need to add fragments
+            outfile = Psi4Files(mymol, [ mymol ], args.json)
+            for mysubdir in glob.glob("*"):
+                if not os.path.isdir(mysubdir):
+                    continue
+                os.chdir(mysubdir)
+                potential = []
+                if "esp" == calc and not args.skipESP:
+                    potential = read_esp(mymol)
+                if write_xml_debug:
+                    logf.write("Will try to read data from %s\n" % mymol)
+                status = outfile.read(args, [ mymol ], monoq, calc, mymol, mysubdir,
+                                      Mols, ahof, temperature, potential, logf)
+                if Psi4Error.OK != status:
+                    logf.write("%s in %s\n" % ( psi4msg(status), os.getcwd() ))
+                os.chdir("..")
+            mm.add_molecule(outfile.molprop(), True)
+            os.chdir("..")
+        os.chdir("..")
+    os.chdir("..")
+
 def parse_args():
     desc = "Extract data from calculations and store them in ACT molprop xml files."
     parser  = argparse.ArgumentParser(description=desc)
@@ -269,7 +320,7 @@ def parse_args():
     parser.add_argument("-rmax", "--rmax", help="Largest relative distance to include, obtained by multiplying the distance at which a minimum is found by this number, applies to diatomic scans and dimer scans, but in that case absolute distance in Angstrom. Default "+str(rmax), type=float, default=rmax)
     rmin = 1.5
     parser.add_argument("-rmin", "--rmin", help="Shortest absolute distance in a dimer scan, distance in Angstrom. Default "+str(rmin), type=float, default=rmin)
-    parser.add_argument("-sel", "--selection", help="Extract dimers based on compounds in a selection file, please provide file name with this flag", type=str, default=None)
+    parser.add_argument("-sel", "--selection", help="Extract monomer and dimers based on compounds in a selection file, please provide file name with this flag", type=str, default=None)
     parser.add_argument("-dimsel", "--dimerselection", help="Extract dimer interactions based on particular calculations of compounds in a file, according to 'dimer/0xxx'. Please provide file name with this flag", type=str, default=None)
     parser.add_argument("-o", "--output", help="Name of the output molprop file, default "+defname, type=str, default=defname)
     parser.add_argument("-v", "--verbose", help="Write debugging output", action="store_true")
@@ -297,6 +348,14 @@ if __name__ == "__main__":
         Mols = Molecules()
         Mols.read_default()
         ahof = AtomicHOF(None, 0, False)
+        if False:
+            diatomics = get_diatomics()
+            for dim in diatomics.keys():
+                mp = add_one_diatomic(dim, diatomics[dim], Mols,
+                                      args.method, args.basis, args.deltaEmax, args.forceMax, args.rmax, ahof)
+                if mp:
+                    mm.add_molecule(mp, True)
+        add_monomers(mm, Mols, args, logf, ahof)
         add_dimers(mm, Mols, args, logf, ahof)
         mm.close()
         alex = "alexandria"
