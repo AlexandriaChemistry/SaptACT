@@ -6,6 +6,7 @@ import os, sys, tempfile, xmltodict
 from rdkit import Chem
 from rdkit.Chem import rdMolDescriptors
 from rdkit.Chem import rdDetermineBonds
+from rdkit.Chem import AllChem
 
 debug     = False
 atomtype  = "atomtype"
@@ -59,9 +60,9 @@ def get_atom_bond_xml()->list:
                 ab[atomtypes].append({ "index": myatp["@index"],
                                        "name": myatp["@name"],
                                        "atomnumber": myatp["@atomnumber"] })
-            if hasattr(abtype, bondtypes):
-                if isinstance(abtype[bondtypes], list):
-                    for bt in abtype[bondtypes]['bondtype']:
+            if bondtypes in abtype and bondtype in abtype[bondtypes]:
+                if isinstance(abtype[bondtypes][bondtype], list):
+                    for bt in abtype[bondtypes][bondtype]:
                         ab[bondtypes].append({ "ai": bt["@ai"],
                                                "aj": bt["@aj"],
                                                "order": bt["@order"] })
@@ -120,9 +121,9 @@ class MoleculeDict:
                         aj = mapAtoms[b[1]-1]
                         if not ai == NOTSET and not aj == NOTSET:
                             for ab in abe[i][bondtypes]:
-                                if ((ab.ai == ai and ab.aj == aj) or
-                                    (ab.ai == aj and ab.aj == ai)):
-                                    self.bonds[b] = ab.order
+                                if ((int(ab["ai"]) == ai and int(ab["aj"]) == aj) or
+                                    (int(ab["ai"]) == aj and int(ab["aj"]) == ai)):
+                                    self.bonds[b] = ab["order"]
                                     break
 
     def analyse(self, mol, molname:str, mycharge=None)->bool:
@@ -199,7 +200,7 @@ class MoleculeDict:
         # First try and read, but do not crash
         try:
             if fileformat == "sdf":
-                m = Chem.MolFromMolFile(filename, sanitize=False, removeHs=False)
+                m = Chem.MolFromMolFile(filename, sanitize=True, removeHs=False)
             elif fileformat == "xyz":
                 raw_mol = Chem.MolFromXYZFile(filename)
                 m = Chem.Mol(raw_mol)
@@ -207,17 +208,22 @@ class MoleculeDict:
                     print("raw_mol #atoms %d mol #atoms %d" % ( len(raw_mol.GetAtoms()), len(m.GetAtoms())))
             elif fileformat == "pdb":
                 try:
-                    m = Chem.MolFromPDBFile(filename, sanitize=True, removeHs=False)
+                    m = Chem.MolFromPDBFile(filename, sanitize=True, removeHs=False, proximityBonding=False)
                 except Chem.AtomValenceException:
-                    m = Chem.MolFromPDBFile(filename, sanitize=False, removeHs=False)
+                    m = Chem.MolFromPDBFile(filename, sanitize=False, removeHs=False, proximityBonding=False)
         except ValueError:
             print(f"Problem reading {molname} from {filename}")
             return False
         if m == None:
             print(f"RDKit returned an empty molecule {molname}")
             return False
-        # We trust the sdf files
-        if fileformat != "sdf":
+        # We trust the sdf files ...
+        determine_bonds = fileformat != "sdf"
+        # ... and if the user specified bonds in the pdb, weuse those.
+        if fileformat == "pdb" and m.GetNumBonds() > 0:
+            determine_bonds = False
+
+        if determine_bonds:
             # The routine to DetermineBonds may crash for weird molecules
             # therefore it is good to try and catch exceptions.
             try:
@@ -280,8 +286,13 @@ class MoleculeDict:
         if self.verbose:
             print("Analyzing %s" % smiles)
         m  = Chem.MolFromSmiles(smiles)
+        # Code taken from https://www.rdkit.org/docs/GettingStartedInPython.html
+        params = AllChem.ETKDGv3()
+        params.randomSeed = 0xf00d # optional random seed for reproducibility
         if addH:
             m2 = Chem.AddHs(m)
-            return analyse(m2, smiles, mycharge)
+            AllChem.EmbedMolecule(m2, params)
+            return self.analyse(m2, smiles, mycharge)
         else:
-            return analyse(m, smiles, mycharge)
+            AllChem.EmbedMolecule(m, params)
+            return self.analyse(m, smiles, mycharge)
